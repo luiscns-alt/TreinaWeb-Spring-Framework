@@ -1,12 +1,13 @@
 package br.com.luiscarlos.twclientes.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table
-public class Cliente {
+public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,7 +16,7 @@ public class Cliente {
     private String nome;
 
     @Column(nullable = false, name = "data_nascimento")
-    private Date dataNasciemnto;
+    private Date dataNascimento;
 
     @Column(nullable = false)
     private String profissao;
@@ -23,10 +24,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, Date dataNasciemnto, String profissao) {
+    public Cliente(Long id, String nome, Date dataNascimento, String profissao) {
         this.id = id;
         this.nome = nome;
-        this.dataNasciemnto = dataNasciemnto;
+        this.dataNascimento = dataNascimento;
         this.profissao = profissao;
     }
 
@@ -46,12 +47,12 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Date getDataNasciemnto() {
-        return dataNasciemnto;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataNasciemnto(Date dataNasciemnto) {
-        this.dataNasciemnto = dataNasciemnto;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getProfissao() {
@@ -67,12 +68,12 @@ public class Cliente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(dataNasciemnto, cliente.dataNasciemnto) && Objects.equals(profissao, cliente.profissao);
+        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(dataNascimento, cliente.dataNascimento) && Objects.equals(profissao, cliente.profissao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, dataNasciemnto, profissao);
+        return Objects.hash(id, nome, dataNascimento, profissao);
     }
 
     @Override
@@ -80,7 +81,7 @@ public class Cliente {
         return "Cliente{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", dataNasciemnto=" + dataNasciemnto +
+                ", dataNascimento=" + dataNascimento +
                 ", profissao='" + profissao + '\'' +
                 '}';
     }
