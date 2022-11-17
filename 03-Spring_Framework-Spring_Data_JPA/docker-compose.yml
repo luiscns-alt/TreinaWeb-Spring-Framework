@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    container_name: 'mysql_twprojetos'
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: twprojetos
+      MYSQL_USER: twprojetos_user
+      MYSQL_PASSWORD: twprojetos_password
+volumes:
+  db_data: { }
+  api-logs:
