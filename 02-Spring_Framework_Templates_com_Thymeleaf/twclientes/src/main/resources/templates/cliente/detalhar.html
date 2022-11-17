@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <title>Spring Fundamentos - Detalhes do Cliente</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TWClientes</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Detalhes do Cliente</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <h5 class="card-header" th:text="${cliente.nome}"></h5>
+            <div class="card-body">
+              <p>Profissão: <span th:text="${cliente.profissao}"></span></p>
+              <p>
+                Data de Nascimento:
+                <span th:text="${cliente.dataNascimento}"></span>
+              </p>
+
+              <a href="" class="btn btn-warning">Editar</a>
+              <a href="" class="btn btn-danger">Excluir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script th:src="@{/js/bootstrap.js}"></script>
+  </body>
+</html>
