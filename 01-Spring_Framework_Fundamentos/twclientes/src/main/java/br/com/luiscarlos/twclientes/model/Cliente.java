@@ -1,8 +1,10 @@
 package br.com.luiscarlos.twclientes.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +18,8 @@ public class Cliente implements Serializable {
     private String nome;
 
     @Column(nullable = false, name = "data_nascimento")
-    private Date dataNascimento;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate dataNascimento;
 
     @Column(nullable = false)
     private String profissao;
@@ -24,7 +27,7 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, Date dataNascimento, String profissao) {
+    public Cliente(Long id, String nome, LocalDate dataNascimento, String profissao) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -47,11 +50,11 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
