@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
     <title>Spring Fundamentos</title>
   </head>
   <body>
-    <!-- <div th:insert="~{fragments/_navbar :: nav}"></div> -->
-    <!-- <div th:include="~{fragments/_navbar :: nav}"></div> -->
-    <div th:replace="~{fragments/_navbar :: nav}"></div>
     <main class="container text-center">
       <div class="row">
         <div class="col-sm-12">
@@ -18,8 +13,6 @@
       <div class="row">
         <div class="col-sm-12">
           <p th:text="${boasVindas}"></p>
-          <!-- <p th:utext="${boasVindas}"></p> Vulnerável a XSS -->
-          <!-- <p>[[${boasVindas}]]</p> -->
         </div>
       </div>
 
@@ -32,7 +25,5 @@
         </div>
       </div>
     </main>
-
-    <script th:src="@{/js/bootstrap.js}"></script>
   </body>
 </html>
